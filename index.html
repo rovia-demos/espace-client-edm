@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.style.setProperty("--vh",innerHeight/100+"px")</script>
+<title>Espace client EDM</title>
+<meta name="description" content="Espace client EDM : vos demandes de devis et les chiffres de votre site, au même endroit.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121519">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- Connexion -->
+<div id="auth" class="auth" hidden>
+  <div class="demo-ribbon" role="note">Démo · données fictives</div>
+  <div class="auth-inner">
+    <img class="auth-logo" src="assets/img/edm-white.png" alt="EDM Electro Dépannage Ménager" width="140" height="56">
+    <div id="auth-view" class="auth-card"></div>
+  </div>
+  <p class="byline byline-dark">Espace client par <strong>Rovia</strong></p>
+</div>
+
+<!-- Application -->
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <img class="side-logo" src="assets/img/edm-white.png" alt="EDM" width="110" height="44">
+    <nav class="side-nav" aria-label="Menu">
+      <a href="#/accueil" data-tab="accueil"><svg><use href="#i-home"/></svg>Accueil</a>
+      <a href="#/demandes" data-tab="demandes"><svg><use href="#i-inbox"/></svg>Mes demandes<span class="badge" data-new></span></a>
+      <a href="#/site" data-tab="site"><svg><use href="#i-chart"/></svg>Mon site</a>
+    </nav>
+    <div class="side-foot">
+      <div class="who"><span class="avatar">B</span><span>Bruno<small>EDM · Perpignan</small></span></div>
+      <button class="link-btn" data-logout type="button"><svg><use href="#i-out"/></svg>Se déconnecter</button>
+    </div>
+  </aside>
+
+  <header class="top">
+    <img src="assets/img/edm-dark.png" alt="EDM" width="78" height="31">
+    <span class="pill-demo">Démo</span>
+    <button class="icon-btn" data-logout type="button" aria-label="Se déconnecter"><svg><use href="#i-out"/></svg></button>
+  </header>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <nav class="tabs" aria-label="Menu">
+    <a href="#/accueil" data-tab="accueil"><svg><use href="#i-home"/></svg>Accueil</a>
+    <a href="#/demandes" data-tab="demandes"><svg><use href="#i-inbox"/></svg><span class="badge" data-new></span>Demandes</a>
+    <a href="#/site" data-tab="site"><svg><use href="#i-chart"/></svg>Mon site</a>
+  </nav>
+</div>
+
+<dialog id="sheet" class="sheet" aria-labelledby="sheet-title"></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 13h5l1.5 3h5L16 13h5"/><path d="M5.5 5h13L21 13v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l5-5-5-5M15 12H3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h3.5l2 5-2.5 1.5a11 11 0 0 0 6.5 6.5L16 13.5l5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  </defs>
+</svg>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
